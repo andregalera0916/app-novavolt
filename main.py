@@ -31,8 +31,7 @@ st.markdown("""
 # Cole sua chave aqui ou configure nos Secrets do Streamlit/Replit
 import streamlit as st
 genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
-model = genai.GenerativeModel('gemini-1.5-pro')
-
+model = genai.GenerativeModel('gemini-pro')
 # --- CLASSE PARA GERAÇÃO DO PDF ---
 class VistoriaPDF(FPDF):
     def header(self):
