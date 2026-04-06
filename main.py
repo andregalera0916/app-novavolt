@@ -2,6 +2,7 @@ import streamlit as st
 from fpdf import FPDF
 from PIL import Image
 import google.generativeai as genai
+from google.generativeai.types import HarmCategory, HarmBlockThreshold
 import io
 from datetime import datetime
 import tempfile
