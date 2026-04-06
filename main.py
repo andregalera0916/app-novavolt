@@ -2,11 +2,12 @@ import streamlit as st
 from fpdf import FPDF
 from PIL import Image
 import google.generativeai as genai
-os.environ["GOOGLE_API_VERSION"] = "v1"
 import io
 from datetime import datetime
 import tempfile
-import os
+import os  # <-- O segredo é garantir que esta linha esteja AQUI
+
+# Agora sim, o comando abaixo vai funcionar:
 os.environ["GOOGLE_API_VERSION"] = "v1"
 
 # --- CONFIGURAÇÃO DA PÁGINA ---
