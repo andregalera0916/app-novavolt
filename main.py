@@ -32,7 +32,10 @@ st.markdown("""
 # Cole sua chave aqui ou configure nos Secrets do Streamlit/Replit
 import streamlit as st
 genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
-model = genai.GenerativeModel('gemini-1.5-flash')
+model = genai.GenerativeModel(
+    model_name="gemini-1.5-flash",
+    generation_config={"temperature": 0.7}
+)
 # --- CLASSE PARA GERAÇÃO DO PDF ---
 class VistoriaPDF(FPDF):
     def header(self):
@@ -76,7 +79,7 @@ def gerar_laudo_ia(texto_bruto):
     {texto_bruto}
     """
     try:
-        response = model.generate_content(prompt)
+       response = model.generate_content(prompt, stream=False)
         return response.text
     except Exception as e:
         return f"Erro na conexão com a IA: {e}"
