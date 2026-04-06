@@ -29,7 +29,8 @@ st.markdown("""
 
 # --- CONFIGURAÇÃO GEMINI ---
 # Cole sua chave aqui ou configure nos Secrets do Streamlit/Replit
-genai.configure(api_key="SUA_CHAVE_API_AQUI")
+import streamlit as st
+genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
 model = genai.GenerativeModel('gemini-1.5-pro')
 
 # --- CLASSE PARA GERAÇÃO DO PDF ---
