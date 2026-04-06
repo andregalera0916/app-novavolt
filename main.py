@@ -2,10 +2,12 @@ import streamlit as st
 from fpdf import FPDF
 from PIL import Image
 import google.generativeai as genai
+os.environ["GOOGLE_API_VERSION"] = "v1"
 import io
 from datetime import datetime
 import tempfile
 import os
+os.environ["GOOGLE_API_VERSION"] = "v1"
 
 # --- CONFIGURAÇÃO DA PÁGINA ---
 st.set_page_config(page_title="Portal de Vistorias Novavolt", layout="wide")
@@ -30,8 +32,7 @@ st.markdown("""
 # --- CONFIGURAÇÃO GEMINI ---
 genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
 model = genai.GenerativeModel(
-    model_name="gemini-1.5-flash",
-    generation_config={"temperature": 0.7}
+    model_name="gemini-1.5-flash"
 )
 
 # --- CLASSE PARA GERAÇÃO DO PDF ---
